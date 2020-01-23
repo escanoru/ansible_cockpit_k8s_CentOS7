@@ -1,0 +1,25 @@
+---
+- hosts: all
+  remote_user: root
+  gather_facts: false
+  vars:
+     sw_list: [ 'cockpit', 'cockpit-storaged', 'cockpit-docker', 'cockpit-kubernetes', 'cockpit-packagekit' ]
+  
+  tasks:
+  - name: "Installing {{ sw_list }}"
+    yum: name={{ sw_list }} state=latest
+
+  - name: Making sure firewald is running
+    service: name=firewalld state=restarted
+
+  - name: Configuring firewalld
+    firewalld: service=cockpit permanent=true state=enabled
+
+  - name: Restarting firewalld
+    service: name=firewalld state=restarted
+
+  - name: Enabling cockpit.socket
+    service: name=cockpit.socket enabled=yes
+    
+  - name: Restarting cockpit.socket
+    service: name=cockpit.socket state=restarted
