@@ -1,8 +1,8 @@
-Ansible - cockpit with k8s and docker modules
+Ansible - cockpit for CentOS
 =========================================
-This Ansible playbook will install cockpit with the kubernetes and docker modules
+This Ansible playbook will install cockpit on CentOS7+
 
 ***Example of how to run this playbook***
 ```
-time sudo ansible-playbook cockpit_k8s_CentOS7.yaml
+time sudo ansible-playbook cockpit_CentOS7.yaml
 ```
