@@ -1,3 +1,3 @@
-Ansible to install cocpit with k8s and docker modules
+Ansible - cockpit with k8s and docker modules
 =========================================
-This Ansible playbook will install cockpit including the kubernetes and docker modules
+This Ansible playbook will install cockpit with the kubernetes and docker modules
